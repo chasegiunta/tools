@@ -14,6 +14,7 @@ use supercool\supercooltools\fields\AuthorInstructions as AuthorInstructionsFiel
 use supercool\supercooltools\fields\DefaultNumber as DefaultNumberField;
 use supercool\supercooltools\fields\DisabledLightswitch as DisabledLightswitchField;
 use supercool\supercooltools\fields\DisabledPlainText as DisabledPlainTextField;
+use supercool\supercooltools\fields\DisabledNumber as DisabledNumberField;
 
 use Craft;
 use craft\base\Plugin;
@@ -80,6 +81,7 @@ class SupercoolTools extends Plugin
                 $event->types[] = DefaultNumberField::class;
                 $event->types[] = DisabledLightswitchField::class;
                 $event->types[] = DisabledPlainTextField::class;
+                $event->types[] = DisabledNumberField::class;
             }
         );
 
