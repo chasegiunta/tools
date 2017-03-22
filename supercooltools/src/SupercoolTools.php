@@ -11,6 +11,7 @@
 namespace supercool\supercooltools;
 
 use supercool\supercooltools\fields\AuthorInstructions as AuthorInstructionsField;
+use supercool\supercooltools\fields\DefaultNumber as DefaultNumberField;
 
 use Craft;
 use craft\base\Plugin;
@@ -74,6 +75,7 @@ class SupercoolTools extends Plugin
             Fields::EVENT_REGISTER_FIELD_TYPES,
             function (RegisterComponentTypesEvent $event) {
                 $event->types[] = AuthorInstructionsField::class;
+                $event->types[] = DefaultNumberField::class;
             }
         );
 
