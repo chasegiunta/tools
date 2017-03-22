@@ -1,0 +1,39 @@
+{
+    "name": "supercool/supercooltools",
+    "description": "A collection of useful things for Craft websites",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "supercooltools"
+    ],
+    "support": {
+        "docs": "https://github.com/supercool/tools",
+        "issues": "https://github.com/supercool/tools/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Supercool",
+            "homepage": "http://supercooldesign.co.uk"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "~3.0.0-beta.7"
+    },
+    "autoload": {
+        "psr-4": {
+          "supercool\\supercooltools\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Supercool Tools",
+        "handle": "supercooltools",
+        "schemaVersion": "1.0.0",
+        "changelogUrl": "https://raw.githubusercontent.com/supercool/tools/master/CHANGELOG.md",
+        "class": "supercool\\supercooltools\\SupercoolTools"
+    }
+}
