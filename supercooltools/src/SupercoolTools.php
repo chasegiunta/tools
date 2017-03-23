@@ -18,6 +18,7 @@ use supercool\supercooltools\fields\DisabledNumber as DisabledNumberField;
 use supercool\supercooltools\fields\DisabledEntries as DisabledEntriesField;
 use supercool\supercooltools\fields\DisabledCategories as DisabledCategoriesField;
 use supercool\supercooltools\fields\DisabledDropdown as DisabledDropdownField;
+use supercool\supercooltools\fields\EntriesSearch as EntriesSearchField;
 
 use Craft;
 use craft\base\Plugin;
@@ -88,6 +89,7 @@ class SupercoolTools extends Plugin
                 $event->types[] = DisabledEntriesField::class;
                 $event->types[] = DisabledCategoriesField::class;
                 $event->types[] = DisabledDropdownField::class;
+                $event->types[] = EntriesSearchField::class;
             }
         );
 
