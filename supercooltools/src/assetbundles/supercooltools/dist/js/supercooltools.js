@@ -294,7 +294,7 @@ SupercoolTools.ElementSearchInput = Craft.BaseElementSelectInput.extend(
 				selectionLabel: this.settings.selectionLabel
 			};
 
-			Craft.postActionRequest('elements/getCategoriesInputHtml', data, $.proxy(function(response, textStatus)
+			Craft.postActionRequest('elements/get-categories-input-html', data, $.proxy(function(response, textStatus)
 			{
 
 				if (textStatus == 'success')

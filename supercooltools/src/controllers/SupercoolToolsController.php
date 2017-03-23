@@ -8,6 +8,7 @@ use Craft;
 use craft\web\Controller;
 
 use craft\elements\Entry;
+use craft\elements\Category;
 use craft\helpers\Db;
 
 class SupercoolToolsController extends Controller
@@ -110,8 +111,6 @@ class SupercoolToolsController extends Controller
 		// Deal with Entries
 		if ($elementType == "Entry")
 		{
-			// Start the criteria
-			// $criteria = Craft::$app->elements->getCriteria(ElementType::Entry);
 
 			// Fangle the sections out of the sources
 			$sections = array();
@@ -149,10 +148,10 @@ class SupercoolToolsController extends Controller
 
 		}
 		// Deal with Categories
-		else if ($elementType == ElementType::Category)
+		else if ($elementType == "Category")
 		{
 			// Start the criteria
-			$criteria = craft()->elements->getCriteria(ElementType::Category);
+			$criteria = Category::find();
 		}
 
 		// Add and exclude ids
@@ -200,7 +199,7 @@ class SupercoolToolsController extends Controller
 					'sourceName'  => $element->section->name
 				);
 			}
-			else if ($elementType == ElementType::Category)
+			else if ($elementType == "Category")
 			{
 				$sourceKey = "group:".$element->group->id;
 				$return[$sourceKey][] = array(
