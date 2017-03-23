@@ -20,6 +20,7 @@ use supercool\supercooltools\fields\DisabledCategories as DisabledCategoriesFiel
 use supercool\supercooltools\fields\DisabledDropdown as DisabledDropdownField;
 use supercool\supercooltools\fields\EntriesSearch as EntriesSearchField;
 use supercool\supercooltools\fields\CategoriesSearch as CategoriesSearchField;
+use supercool\supercooltools\fields\CategoriesMultipleGroups as CategoriesMultipleGroupsField;
 
 use Craft;
 use craft\base\Plugin;
@@ -92,6 +93,7 @@ class SupercoolTools extends Plugin
                 $event->types[] = DisabledDropdownField::class;
                 $event->types[] = EntriesSearchField::class;
                 $event->types[] = CategoriesSearchField::class;
+                $event->types[] = CategoriesMultipleGroupsField::class;
             }
         );
 
