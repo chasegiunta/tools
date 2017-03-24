@@ -23,6 +23,7 @@ use supercool\supercooltools\fields\CategoriesSearch as CategoriesSearchField;
 use supercool\supercooltools\fields\CategoriesMultipleGroups as CategoriesMultipleGroupsField;
 use supercool\supercooltools\fields\OtherDropdown as OtherDropdownField;
 use supercool\supercooltools\fields\Width as WidthField;
+use supercool\supercooltools\fields\Ancestors as AncestorsField;
 
 use Craft;
 use craft\base\Plugin;
@@ -98,6 +99,7 @@ class SupercoolTools extends Plugin
                 $event->types[] = CategoriesMultipleGroupsField::class;
                 $event->types[] = OtherDropdownField::class;
                 $event->types[] = WidthField::class;
+                $event->types[] = AncestorsField::class;
             }
         );
 
