@@ -22,6 +22,7 @@ use supercool\supercooltools\fields\EntriesSearch as EntriesSearchField;
 use supercool\supercooltools\fields\CategoriesSearch as CategoriesSearchField;
 use supercool\supercooltools\fields\CategoriesMultipleGroups as CategoriesMultipleGroupsField;
 use supercool\supercooltools\fields\OtherDropdown as OtherDropdownField;
+use supercool\supercooltools\fields\Width as WidthField;
 
 use Craft;
 use craft\base\Plugin;
@@ -96,6 +97,7 @@ class SupercoolTools extends Plugin
                 $event->types[] = CategoriesSearchField::class;
                 $event->types[] = CategoriesMultipleGroupsField::class;
                 $event->types[] = OtherDropdownField::class;
+                $event->types[] = WidthField::class;
             }
         );
 

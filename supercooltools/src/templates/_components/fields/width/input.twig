@@ -67,9 +67,6 @@
 }}
 
 
-{% includeCssResource "supercooltools/css/nouislider.pips.css" %}
-{% includeCssResource "supercooltools/css/nouislider.css" %}
-
 <div id="{{ name }}-slider"></div>
 
 
@@ -153,8 +150,8 @@
 
 
 {% endset %}
-{% includeJsResource "supercooltools/js/nouislider.js" %}
-{% includeJs sliderFieldJS %}
+
+{% js sliderFieldJS %}
 
 <div class="noUi__total" id="{{name}}-total"></div>
 
