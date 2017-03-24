@@ -1,13 +1,15 @@
 <?php
-namespace Craft;
 
 /**
  * Class OtherDropdownData
  *
  * @author    Supercool Ltd <naveed@supercooldesign.co.uk>
- * @copyright Copyright (c) 2016, Supercool Ltd.
+ * @copyright Copyright (c) 2017, Supercool Ltd.
  * @see       http://supercooldesign.co.uk
  */
+
+namespace supercool\supercooltools\fields\data;
+
 
 class OtherDropdownData
 {
@@ -61,6 +63,7 @@ class OtherDropdownData
 	{
 		return (string) $this->value;
 	}
+
 
 	/**
 	 * @return array|null
