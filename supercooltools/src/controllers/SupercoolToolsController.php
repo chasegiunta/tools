@@ -9,7 +9,9 @@ use craft\web\Controller;
 
 use craft\elements\Entry;
 use craft\elements\Category;
+use craft\elements\Asset;
 use craft\helpers\Db;
+use craft\helpers\FileHelper;
 
 class SupercoolToolsController extends Controller
 {
@@ -21,39 +23,23 @@ class SupercoolToolsController extends Controller
 	 */
 	public function actionDownloadFile()
 	{
-
-		// Clean up temp assets files that are more than a day old
-		$fileResults = array();
-
-		$files = IOHelper::getFiles(craft()->path->getTempPath(), true);
-
-		foreach ($files as $file)
-		{
-			$lastModifiedTime = IOHelper::getLastTimeModified($file, true);
-			if (substr(IOHelper::getFileName($file, false, true), 0, 6) === "assets" && DateTimeHelper::currentTimeStamp() - $lastModifiedTime->getTimestamp() >= 86400)
-			{
-				IOHelper::deleteFile($file);
-			}
-		}
-
 		// Sort out the file we want to download
-		$id = craft()->request->getParam('id');
+		$id = Craft::$app->getRequest()->getParam('id');
 
-		$criteria = craft()->elements->getCriteria(ElementType::Asset);
-		$criteria->id = $id;
-		$asset = $criteria->first();
+
+		$query = Asset::find()->id($id);
+		$asset = $query->one();
 
 		if ($asset)
 		{
 
 			// Get a local copy of the file
-			$sourceType = craft()->assetSources->getSourceTypeById($asset->sourceId);
-			$localCopy = $sourceType->getLocalCopy($asset);
+			$localCopy = $asset->getCopyOfFile($asset);
 
 			// Send it to the browser
-			craft()->request->sendFile($asset->filename, IOHelper::getFileContents($localCopy), array('forceDownload' => true));
-			craft()->end();
-
+			$response= Craft::$app->getResponse()->sendFile($localCopy, $asset->filename, []);
+			FileHelper::removeFile($localCopy);
+			return $response;
 		}
 
 	}
