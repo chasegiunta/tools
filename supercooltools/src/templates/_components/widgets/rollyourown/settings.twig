@@ -4,16 +4,16 @@
 	label: "Title"|t,
 	id: 'title',
 	name: 'title',
-	value: settings.title,
+	value: widget['title'],
 	required: true,
-	errors: settings.getErrors('title')
+	errors: widget.getErrors('title')
 }) }}
 
 {{ forms.textField({
 	label: "Template"|t,
 	id: 'template',
 	name: 'template',
-	value: settings.template,
+	value: widget['template'],
 	required: true,
-	errors: settings.getErrors('template')
+	errors: widget.getErrors('template')
 }) }}

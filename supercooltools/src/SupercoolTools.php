@@ -25,11 +25,14 @@ use supercool\supercooltools\fields\OtherDropdown as OtherDropdownField;
 use supercool\supercooltools\fields\Width as WidthField;
 use supercool\supercooltools\fields\Ancestors as AncestorsField;
 
+use supercool\supercooltools\widgets\RollYourOwn as RollYourOwnWidget;
+
 use Craft;
 use craft\base\Plugin;
 use craft\services\Plugins;
 use craft\events\PluginEvent;
 use craft\services\Fields;
+use craft\services\Dashboard;
 use craft\events\RegisterComponentTypesEvent;
 
 use yii\base\Event;
@@ -100,6 +103,15 @@ class SupercoolTools extends Plugin
                 $event->types[] = OtherDropdownField::class;
                 $event->types[] = WidthField::class;
                 $event->types[] = AncestorsField::class;
+            }
+        );
+
+        // Register our widgets
+        Event::on(
+            Dashboard::className(),
+            Dashboard::EVENT_REGISTER_WIDGET_TYPES,
+            function (RegisterComponentTypesEvent $event) {
+                $event->types[] = RollYourOwnWidget::class;
             }
         );
 
